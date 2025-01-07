@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-image: url('reg_bg1.avif'); /* Add your image here */
+            background-size: cover; /* Ensure the image covers the entire screen */
+            background-position: center; /* Keep the image centered */
+            background-attachment: fixed; /* Keep the image fixed when scrolling */
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            opacity: 0;
+            animation: fadeInForm 2s ease-in forwards;
+            color: #fff;
+            position: relative;
+            z-index: 1; /* Ensure the form appears above the background */
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px; /* Move to the top-right corner */
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #ff6b6b; /* Highlight color on hover */
+            transform: scale(1.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            animation: slideDown 1.5s ease-in-out;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: all 0.3s ease-in-out;
+            background-color: #2c2c2c;
+            color: #fff;
+        }
+
+        input:focus {
+            border-color: #ffda79; /* Golden color on focus */
+            box-shadow: 0 0 8px rgba(255, 218, 121, 0.5);
+            outline: none;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #ff6b6b;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff4757;
+            transform: scale(1.05);
+        }
+
+        a {
+            color: #ffda79;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInForm {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="close-btn" onclick="window.history.back()">X</button>
+        <h1>Registration Form</h1>
+        <form id="registration-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name"><br>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email"><br>
+
+            <label for="contact">Contact</label>
+            <input type="text" id="contact" name="contact" placeholder="Enter your contact number"><br>
+
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" placeholder="Enter your address"><br>
+
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" placeholder="Enter your state"><br>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password"><br>
+
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password"><br>
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="log.html">Login here</a></p>
+    </div>
+
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const contact = document.getElementById('contact').value;
+            const address = document.getElementById('address').value;
+            const state = document.getElementById('state').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            // Basic form validation
+            if (!name || !email || !contact || !address || !state || !password || !confirmPassword) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // Optionally, you can store this information or send it to a backend API
+            alert('Registration successful!');
+
+            // Reset form
+            document.getElementById('registration-form').reset();
+        });
+    </script>
+</body>
+</html>

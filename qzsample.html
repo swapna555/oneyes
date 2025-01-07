@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+      padding-left: 50%;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 10px;
+      background-color: #f1c40f;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ff3838;
+      font-size: 18px;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    nav ul li a:hover {
+      background-color: #9ae518;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    input[type="radio"] {
+      margin: 5px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #27ae60;
+    }
+
+    footer {
+      display: flex;
+      list-style: none;
+      padding: 10px;
+      background-color: #f1c40f;
+      justify-content: center;
+     
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop id="bg-video">
+    <source src="quiz_bg.mp4" type="video/mp4">
+  </video>
+  <nav>
+    <ul>
+      <li><a href="#" onclick="showSection('html-section')">HTML Quiz</a></li>
+      <li><a href="#" onclick="showSection('css-sec')">CSS Quiz</a></li>
+      <li><a href="#" onclick="showSection('js-section')">JavaScript Quiz</a></li>
+      <li><a href="progress.html">Total Marks</a></li>
+    </ul>
+  </nav>
+
+  <section id="html-section" class="active">
+    <h2>HTML Quiz</h2>
+    <form id="html-quiz">
+      <label>1. What is HTML?</label><br>
+      <input type="radio" name="q1" value="a"> A programming language<br>
+      <input type="radio" name="q1" value="b"> A markup language<br>
+      <input type="radio" name="q1" value="c"> A database<br><br>
+      
+      <label for="q2">2. What does HTML stand for?</label><br>
+      <input type="radio" name="q2" value="a"> Hyper Trainer Marking Language<br>
+      <input type="radio" name="q2" value="b"> Hyper Text Markup Language<br>
+      <input type="radio" name="q2" value="c"> Hyperlinks and Text Markup Language<br><br>
+
+      <label for="q3">3. Which HTML tag is used to create a hyperlink?</label><br>
+      <input type="radio" name="q3" value="a"> &lt;link&gt;<br>
+      <input type="radio" name="q3" value="b"> &lt;href&gt;<br>
+      <input type="radio" name="q3" value="c"> &lt;a&gt;<br><br>
+
+      <label for="q4">4. Which is the correct HTML element for the largest heading?</label><br>
+      <input type="radio" name="q4" value="a"> &lt;h6&gt;<br>
+      <input type="radio" name="q4" value="b"> &lt;head&gt;<br>
+      <input type="radio" name="q4" value="c"> &lt;h1&gt;<br><br>
+
+      <label for="q5">5. How do you add a comment in HTML?</label><br>
+      <input type="radio" name="q5" value="a"> &lt;!-- This is a comment --&gt;<br>
+      <input type="radio" name="q5" value="b"> // This is a comment<br>
+      <input type="radio" name="q5" value="c"> # This is a comment<br><br>
+
+      <label for="q6">6. Which attribute is used to provide a unique identifier for an HTML element?</label><br>
+      <input type="radio" name="q6" value="a"> class<br>
+      <input type="radio" name="q6" value="b"> id<br>
+      <input type="radio" name="q6" value="c"> name<br><br>
+
+      <label for="q7">7. What is the purpose of the &lt;title&gt; tag in HTML?</label><br>
+      <input type="radio" name="q7" value="a"> To set the title of the web page<br>
+      <input type="radio" name="q7" value="b"> To display a heading<br>
+      <input type="radio" name="q7" value="c"> To link to a stylesheet<br><br>
+
+      <label for="q8">8. Which HTML tag is used to define an unordered list?</label><br>
+      <input type="radio" name="q8" value="a"> &lt;ul&gt;<br>
+      <input type="radio" name="q8" value="b"> &lt;ol&gt;<br>
+      <input type="radio" name="q8" value="c"> &lt;li&gt;<br><br>
+      <button type="button" onclick="submitQuiz('html-quiz', 'HTML')">Submit Quiz</button>
+    </form>
+  </section>
+
+  <section id="css-sec">
+    <h2>CSS Quiz</h2>
+    <form id="css-quiz">
+      <label>1. What is CSS used for?</label><br>
+      <input type="radio" name="q1" value="a"> Adding interactivity<br>
+      <input type="radio" name="q1" value="b"> Styling web pages<br>
+      <input type="radio" name="q1" value="c"> Storing data<br><br>
+      <label for="q2">2. What does CSS stand for?</label><br>
+      <input type="radio" name="q2" value="a"> Creative Style Sheets<br>
+      <input type="radio" name="q2" value="b"> Cascading Style Sheets<br>
+      <input type="radio" name="q2" value="c"> Computer Style Sheets<br><br>
+
+      <label for="q3">3. Which CSS property is used to change the text color of an element?</label><br>
+      <input type="radio" name="q3" value="a"> background-color<br>
+      <input type="radio" name="q3" value="b"> color<br>
+      <input type="radio" name="q3" value="c"> font-color<br><br>
+
+      <label for="q4">4. Which CSS property is used to set the background color of an element?</label><br>
+      <input type="radio" name="q4" value="a"> color<br>
+      <input type="radio" name="q4" value="b"> background-color<br>
+      <input type="radio" name="q4" value="c"> bgcolor<br><br>
+
+      <label for="q5">5. How do you select an element with the ID "header" in CSS?</label><br>
+      <input type="radio" name="q5" value="a"> .header<br>
+      <input type="radio" name="q5" value="b"> #header<br>
+      <input type="radio" name="q5" value="c"> header<br><br>
+
+      <label for="q6">6. What is the correct syntax to include an external CSS file in HTML?</label><br>
+      <input type="radio" name="q6" value="a"> &lt;link rel="stylesheet" href="styles.css"&gt;<br>
+      <input type="radio" name="q6" value="b"> &lt;style src="styles.css"&gt;<br>
+      <input type="radio" name="q6" value="c"> &lt;css file="styles.css"&gt;<br><br>
+
+      <label for="q7">7. Which CSS property is used to control the spacing between elements?</label><br>
+      <input type="radio" name="q7" value="a"> margin<br>
+      <input type="radio" name="q7" value="b"> padding<br>
+      <input type="radio" name="q7" value="c"> spacing<br><br>
+      <label for="q7">8. how to import external css file in html file</label><br>
+            <input type="radio" name="q8" value="a"> link tag<br>
+            <input type="radio" name="q8" value="b"> style tag<br>
+            <input type="radio" name="q8" value="c"> script<br><br>
+      <button type="button" onclick="submitQuiz('css-quiz', 'CSS')">Submit Quiz</button>
+    </form>
+  </section>
+
+  <section id="js-section">
+    <h2>JavaScript Quiz</h2>
+    <form id="js-quiz">
+      <label>1. What is JavaScript primarily used for?</label><br>
+      <input type="radio" name="q1" value="a"> Styling web pages<br>
+      <input type="radio" name="q1" value="b"> Adding interactivity to web pages<br>
+      <input type="radio" name="q1" value="c"> Structuring web content<br><br>
+
+      <label for="q2">2. Which keyword is used to declare a variable in JavaScript?</label><br>
+      <input type="radio" name="q2" value="a"> var<br>
+      <input type="radio" name="q2" value="b"> let<br>
+      <input type="radio" name="q2" value="c"> Both a and b<br><br>
+
+      <label for="q3">3. What does the `console.log()` method do in JavaScript?</label><br>
+      <input type="radio" name="q3" value="a"> Logs a message to the console<br>
+      <input type="radio" name="q3" value="b"> Creates a new variable<br>
+      <input type="radio" name="q3" value="c"> Displays an alert box<br><br>
+
+      <label for="q4">4. What symbol is used for single-line comments in JavaScript?</label><br>
+      <input type="radio" name="q4" value="a"> //<br>
+      <input type="radio" name="q4" value="b"> /*<br>
+      <input type="radio" name="q4" value="c"> #<br><br>
+
+      <label for="q5">5. Which operator is used to compare two values in JavaScript?</label><br>
+      <input type="radio" name="q5" value="a"> ==<br>
+      <input type="radio" name="q5" value="b"> =<br>
+      <input type="radio" name="q5" value="c"> ===<br><br>
+
+      <label for="q6">6. Which event is triggered when a user clicks a button in JavaScript?</label><br>
+      <input type="radio" name="q6" value="a"> onClick<br>
+      <input type="radio" name="q6" value="b"> onSubmit<br>
+      <input type="radio" name="q6" value="c"> onLoad<br><br>
+      <label for="q7">7. Which method is used to add an element to the end of an array in JavaScript?</label><br>
+<input type="radio" name="q7" value="a"> push()<br>
+<input type="radio" name="q7" value="b"> pop()<br>
+<input type="radio" name="q7" value="c"> shift()<br>
+<input type="radio" name="q7" value="d"> unshift()<br><br>
+<label for="q8">8. How do you declare a variable in JavaScript?</label><br>
+<input type="radio" name="q8" value="a"> var<br>
+<input type="radio" name="q8" value="b"> let<br>
+<input type="radio" name="q8" value="c"> const<br>
+<input type="radio" name="q8" value="d"> All of the above<br><br>
+
+
+      
+
+      <button type="button" onclick="submitQuiz('js-quiz', 'JavaScript')">Submit Quiz</button>
+    </form>
+  </section>
+
+  <footer>
+    <li><a href="home.html">Back to HOme</a></li>
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+      // Hide all sections
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+
+      // Show the selected section
+      const sectionToShow = document.getElementById(sectionId);
+      sectionToShow.classList.add('active');
+    }
+    function submitQuiz(quizId, quizName) {
+  const form = document.getElementById(quizId);
+  const answers = {
+    "html-quiz": { q1: "b", q2: "b", q3: "c", q4: "c", q5: "a", q6: "b", q7: "a", q8: "a" },
+    "css-quiz": { q1: "b", q2: "b", q3: "b", q4: "b", q5: "b", q6: "a", q7: "a",q8:"a" },
+    "js-quiz": { q1: "b", q2: "c", q3: "a", q4: "b", q5: "a", q6: "b", q7: "a",q8:"c" },
+  };
+
+  let score = 0;
+  const formData = new FormData(form);
+
+  for (let [key, value] of formData.entries()) {
+    if (answers[quizId][key] === value) {
+      score++;
+    }
+  }
+
+  // Save progress to localStorage
+  const progress = JSON.parse(localStorage.getItem('progress')) || {};
+  progress[quizName] = score; // Use quizName here for correct saving
+  localStorage.setItem('progress', JSON.stringify(progress));
+
+  alert(`You scored ${score} out of ${Object.keys(answers[quizId]).length}!`);
+
+  // Optionally reload the page to reflect the updated score
+  window.location.reload();
+}
+
+  </script>
+</body>
+</html>
